@@ -20,6 +20,7 @@ public class PlayerController : NetworkBehaviour
         _mouseInput.z = _mainCamera.nearClipPlane;
 
         Vector3 mouseWorldCoordinates = _mainCamera.ScreenToWorldPoint(_mouseInput);
+        mouseWorldCoordinates.z = 0f;
         transform.position = Vector3.MoveTowards(current:transform.position, target:mouseWorldCoordinates, maxDistanceDelta:Time.deltaTime * speed);
 
         // Rotation
